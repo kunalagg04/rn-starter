@@ -1,17 +1,47 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { Text, StyleSheet , View , Button , TouchableOpacity } from 'react-native';
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = (props) => {
+
+  console.log(props)
+
   return (
     <View>
-      <Text style={{ fontSize: 30 }}>HomeScreen</Text>
-      <Button title="Layout" onPress={() => navigation.navigate('Layout')} />
+
+       <Text style={styles.text}>Hi there</Text>
+           <Button 
+                onPress = {() => props.navigation.navigate('ListScreen') } 
+                 title = "Flat List"/>
+
+              <Button 
+                onPress = {() => props.navigation.navigate('Color') } 
+                 title = "Colour Boxes"/>
+              
+              <Button 
+                onPress = {() => props.navigation.navigate('ColorBox') } 
+                 title = "Colour Box"/>
+
+               <Button 
+                onPress = {() => props.navigation.navigate('BoxScreen') } 
+                 title = "Box Screen"/>
+
+            
+           
+
+{/* <TouchableOpacity>
+  <Text>
+    Tocuh me
+  </Text>
+</TouchableOpacity> */}
+
     </View>
-  );
+  ) 
 };
 
-HomeScreen.navigationOptions = {
-  title: 'Home'
-};
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 30
+  }
+});
 
 export default HomeScreen;
